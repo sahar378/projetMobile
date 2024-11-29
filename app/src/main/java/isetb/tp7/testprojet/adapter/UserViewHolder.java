@@ -1,7 +1,11 @@
 package isetb.tp7.testprojet.adapter;
 
+import android.app.AlertDialog;
 import android.graphics.BitmapFactory;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,49 +16,57 @@ import isetb.tp7.testprojet.model.User;
 import isetb.tp7.testprojet.R;
 
 public class UserViewHolder extends RecyclerView.ViewHolder {
-    private ImageView img;
+    private ImageView userImage;
     private TextView firstName;
     private TextView lastName;
-    private TextView email;
-    private TextView username;
-    private TextView password;
-    private TextView tel;
-    private TextView cin;
-    private TextView birthDate;
-    private TextView startWork;
-    private TextView poste;
-    private TextView adress;
 
+    private Button btnEdit;  // Ajout de la variable pour le bouton Edit
+    private Button btnDelete; // Ajout de la variable pour le bouton Delete
     public UserViewHolder(@NonNull View itemView) {
         super(itemView);
-        img = itemView.findViewById(R.id.img);
+        userImage = itemView.findViewById(R.id.user_image);
         firstName = itemView.findViewById(R.id.fn);
         lastName = itemView.findViewById(R.id.ln);
-        email = itemView.findViewById(R.id.email);
-        username = itemView.findViewById(R.id.username);
-        password = itemView.findViewById(R.id.pwd);
-        tel = itemView.findViewById(R.id.tel);
-        cin = itemView.findViewById(R.id.cin);
-        birthDate = itemView.findViewById(R.id.birthDate);
-        startWork = itemView.findViewById(R.id.startWork);
-        poste = itemView.findViewById(R.id.poste);
-        adress = itemView.findViewById(R.id.adress);
+        btnEdit = itemView.findViewById(R.id.edit_icon);
+        btnDelete = itemView.findViewById(R.id.delete_icon);
     }
 
-    public void bind(User user) {
-        if (user != null) {
-            firstName.setText(user.getNom() != null ? user.getNom() : "N/A");
-            lastName.setText(user.getPrenom() != null ? user.getPrenom() : "N/A");
-            email.setText(user.getEmail() != null ? user.getEmail() : "N/A");
-            username.setText(user.getUsername() != null ? user.getUsername() : "N/A");
-            password.setText(user.getPassword() != null ? user.getPassword() : "N/A");
-            tel.setText(user.getTelephone() != null ? user.getTelephone() : "N/A");
-            cin.setText(user.getCin() != null ? user.getCin() : "N/A");
-            birthDate.setText(user.getDateNaissance() != null ? user.getDateNaissance().toString() : "N/A");
-            startWork.setText(user.getDateDebutTravail() != null ? user.getDateDebutTravail().toString() : "N/A");
-            poste.setText(user.getPoste() != null ? user.getPoste() : "N/A");
-            adress.setText(user.getAdresseComplet() != null ? user.getAdresseComplet() : "N/A");
-        }
+    public void bind(User user, View.OnClickListener onEditClickListener,
+                     View.OnClickListener onDeleteClickListener) {
+        firstName.setText(user.getNom());
+        lastName.setText(user.getPrenom());
 
+        userImage.setOnClickListener(v -> showUserInfoDialog(user, v));
+        // Ajout des listeners pour les boutons
+        btnEdit.setOnClickListener(onEditClickListener);
+        btnDelete.setOnClickListener(onDeleteClickListener);
     }
+
+
+
+    private void showUserInfoDialog(User user, View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+        LayoutInflater inflater = LayoutInflater.from(view.getContext());
+        View dialogView = inflater.inflate(R.layout.dialog_user_info, null);
+        ImageView dialogImage = dialogView.findViewById(R.id.dialog_user_image);
+        TextView dialogInfo = dialogView.findViewById(R.id.dialog_user_info);
+
+        dialogInfo.setText("Name: " + user.getNom()
+                + "\nPrenom: " + user.getPrenom()
+                + "\nEmail: " + user.getEmail()
+                + "\nUsername: " + user.getUsername()
+                + "\nTelephone: " + user.getTelephone()
+                + "\nCIN: " + user.getCin()
+                + "\nDate Naissance: " + user.getDateNaissance()
+                + "\nDate Debut Travail: " + user.getDateDebutTravail()
+                + "\nPoste: " + user.getPoste()
+                + "\nAdresse: " + user.getAdresseComplet());
+
+        builder.setView(dialogView)
+                .setPositiveButton("OK", (dialog, which) -> dialog.dismiss())
+                .create()
+                .show();
+    }
+
+
 }

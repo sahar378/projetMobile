@@ -13,7 +13,6 @@ public class User {
     private String adresseComplet;
     private String dateNaissance; // Changer LocalDate en String
     private String dateDebutTravail; // Changer LocalDate en String
-    private String image; // Changer byte[] en String
 
     // Constructeurs, getters et setters
     public User() {
@@ -32,7 +31,6 @@ public class User {
         this.adresseComplet = adresseComplet;
         this.dateNaissance = dateNaissance;
         this.dateDebutTravail = dateDebutTravail;
-        this.image = image;
     }
 
     // Getters et Setters
@@ -132,11 +130,5 @@ public class User {
         this.dateDebutTravail = dateDebutTravail;
     }
 
-    public String getImage() {
-        return image;
-    }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
 }
