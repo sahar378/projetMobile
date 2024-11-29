@@ -1,0 +1,45 @@
+# Ignorer les fichiers de construction
+/build/
+app/build/
+
+# Ignorer les fichiers de configuration locaux
+local.properties
+
+# Ignorer les fichiers générés par Android Studio
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Ignorer les caches et bibliothèques d'Android Studio
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+
+# Ignorer les fichiers de keystore
+*.jks
+*.keystore
+
+# Ignorer les fichiers de log
+*.log
+
+# Ignorer les fichiers spécifiques au système d'exploitation
+.DS_Store
+Thumbs.db
+
+# Ignorer les fichiers générés par Gradle
+.gradle/
+
+# Ignorer les fichiers APK et autres fichiers générés
+*.apk
+*.ap_
+*.dex
+*.class
+
+# Ignorer les fichiers Proguard
+proguard-rules.pro
+
+# Ignorer les répertoires NDK si utilisés
+ndkBuild/
+.externalNativeBuild/
