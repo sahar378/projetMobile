@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.OnUse
 
     @Override
     public void onDeleteUser(User user) {
-        deleteUser(user);
+        confirmDeleteUser(user);
     }
 
     private void showEditDialog(User user) {
@@ -96,20 +96,47 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.OnUse
         LayoutInflater inflater = getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.dialog_edit_user, null);
 
-        // Initialize EditTexts with current user data
+        // Déclaration des EditTexts pour chaque attribut
         EditText editNom = dialogView.findViewById(R.id.edit_user_nom);
         EditText editPrenom = dialogView.findViewById(R.id.edit_user_prenom);
+        EditText editEmail = dialogView.findViewById(R.id.edit_user_email);
+        EditText editUsername = dialogView.findViewById(R.id.edit_user_username);
+        EditText editTelephone = dialogView.findViewById(R.id.edit_user_telephone);
+        EditText editCin = dialogView.findViewById(R.id.edit_user_cin);
+        EditText editDateNaissance = dialogView.findViewById(R.id.edit_user_date_naissance);
+        EditText editDateDebutTravail = dialogView.findViewById(R.id.edit_user_date_debut_travail);
+        EditText editPoste = dialogView.findViewById(R.id.edit_user_poste);
+        EditText editAdresse = dialogView.findViewById(R.id.edit_user_adresse);
 
+        // Remplissez les EditTexts avec les données existantes
         editNom.setText(user.getNom());
         editPrenom.setText(user.getPrenom());
+        editEmail.setText(user.getEmail());
+        editUsername.setText(user.getUsername());
+        editTelephone.setText(user.getTelephone());
+        editCin.setText(user.getCin());
+        editDateNaissance.setText(user.getDateNaissance());
+        editDateDebutTravail.setText(user.getDateDebutTravail());
+        editPoste.setText(user.getPoste());
+        editAdresse.setText(user.getAdresseComplet());
 
-        builder.setTitle("Edit User")
-                .setPositiveButton("Update", (dialog, which) -> {
+        builder.setTitle("Modifier Utilisateur")
+                .setPositiveButton("Mettre à jour", (dialog, which) -> {
+                    // Mettez à jour les informations de l'utilisateur ici
                     user.setNom(editNom.getText().toString());
                     user.setPrenom(editPrenom.getText().toString());
-                    updateUser(user);
+                    user.setEmail(editEmail.getText().toString());
+                    user.setUsername(editUsername.getText().toString());
+                    user.setTelephone(editTelephone.getText().toString());
+                    user.setCin(editCin.getText().toString());
+                    user.setDateNaissance(editDateNaissance.getText().toString());
+                    user.setDateDebutTravail(editDateDebutTravail.getText().toString());
+                    user.setPoste(editPoste.getText().toString());
+                    user.setAdresseComplet(editAdresse.getText().toString());
+
+                    updateUser(user); // Appel à la méthode pour mettre à jour l'utilisateur dans la base de données
                 })
-                .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss())
+                .setNegativeButton("Annuler", (dialog, which) -> dialog.dismiss())
                 .setView(dialogView)
                 .create()
                 .show();
@@ -122,16 +149,27 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.OnUse
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful()) {
-                    fetchUsers(); // Refresh the list
+                    fetchUsers(); // Rafraîchir la liste des utilisateurs
                     Toast.makeText(MainActivity.this, "Utilisateur mis à jour", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Échec de la mise à jour", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Échec de la mise à jour", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Erreur lors de la mise à jour", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    private void confirmDeleteUser(User user) {
+        new AlertDialog.Builder(this)
+                .setTitle("Supprimer Utilisateur")
+                .setMessage("Êtes-vous sûr de vouloir supprimer cet utilisateur ?")
+                .setPositiveButton("Oui", (dialog, which) -> deleteUser(user))
+                .setNegativeButton("Non", (dialog, which) -> dialog.dismiss())
+                .create()
+                .show();
     }
 
     private void deleteUser(User user) {
@@ -141,14 +179,16 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.OnUse
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
-                    fetchUsers(); // Refresh the list
+                    fetchUsers(); // Rafraîchir la liste des utilisateurs
                     Toast.makeText(MainActivity.this, "Utilisateur supprimé", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Échec de la suppression", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Échec de la suppression", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Erreur lors de la suppression", Toast.LENGTH_SHORT).show();
             }
         });
     }
