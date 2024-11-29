@@ -1,4 +1,4 @@
-package isetb.tp7.testprojet;
+package com.example.projetmobile;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("isetb.tp7.testprojet", appContext.getPackageName());
+        assertEquals("com.example.projetmobile", appContext.getPackageName());
     }
 }

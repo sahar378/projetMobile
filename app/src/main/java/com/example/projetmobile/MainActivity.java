@@ -1,4 +1,5 @@
-package isetb.tp7.testprojet;
+package com.example.projetmobile;
+
 
 import android.os.Bundle;
 import android.util.Log;
@@ -15,13 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import isetb.tp7.testprojet.adapter.UserAdapter;
-import isetb.tp7.testprojet.model.User;
-import isetb.tp7.testprojet.utils.Apis;
-import isetb.tp7.testprojet.utils.UserService;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import com.example.projetmobile.adapter.UserAdapter;
+import com.example.projetmobile.model.User;
+import com.example.projetmobile.utils.Apis;
+import com.example.projetmobile.utils.UserService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -72,4 +75,40 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    private void editUser(User user) {
+        user.setNom("Nom modifié"); // Exemple de modification
+        UserService userService = Apis.getService();
+        userService.updateUser(user.getId(), user).enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.isSuccessful()) {
+                    fetchUsers(); // Rafraîchir la liste
+                    Toast.makeText(MainActivity.this, "Utilisateur mis à jour", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Toast.makeText(MainActivity.this, "Échec de la mise à jour", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void deleteUser(User user) {
+        UserService userService = Apis.getService();
+        userService.deleteUser(user.getId()).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    fetchUsers(); // Rafraîchir la liste
+                    Toast.makeText(MainActivity.this, "Utilisateur supprimé", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(MainActivity.this, "Échec de la suppression", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 }

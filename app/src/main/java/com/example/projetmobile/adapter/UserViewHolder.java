@@ -1,15 +1,16 @@
-package isetb.tp7.testprojet.adapter;
+package com.example.projetmobile.adapter;
 
 import android.graphics.BitmapFactory;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import isetb.tp7.testprojet.model.User;
-import isetb.tp7.testprojet.R;
+import com.example.projetmobile.R;
+import com.example.projetmobile.model.User;
 
 public class UserViewHolder extends RecyclerView.ViewHolder {
     private ImageView img;
@@ -24,6 +25,8 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
     private TextView startWork;
     private TextView poste;
     private TextView adress;
+    private Button btnEdit;  // Ajout de la variable pour le bouton Edit
+    private Button btnDelete; // Ajout de la variable pour le bouton Delete
 
     public UserViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -39,9 +42,11 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
         startWork = itemView.findViewById(R.id.startWork);
         poste = itemView.findViewById(R.id.poste);
         adress = itemView.findViewById(R.id.adress);
+        btnEdit = itemView.findViewById(R.id.btn_edit); // Récupération du bouton Edit
+        btnDelete = itemView.findViewById(R.id.btn_delete); // Récupération du bouton Delete
     }
 
-    public void bind(User user) {
+    public void bind(User user, View.OnClickListener onEditClickListener, View.OnClickListener onDeleteClickListener) {
         if (user != null) {
             firstName.setText(user.getNom() != null ? user.getNom() : "N/A");
             lastName.setText(user.getPrenom() != null ? user.getPrenom() : "N/A");
@@ -54,7 +59,10 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
             startWork.setText(user.getDateDebutTravail() != null ? user.getDateDebutTravail().toString() : "N/A");
             poste.setText(user.getPoste() != null ? user.getPoste() : "N/A");
             adress.setText(user.getAdresseComplet() != null ? user.getAdresseComplet() : "N/A");
-        }
 
+            // Ajout des listeners pour les boutons
+            btnEdit.setOnClickListener(onEditClickListener);
+            btnDelete.setOnClickListener(onDeleteClickListener);
+        }
     }
 }

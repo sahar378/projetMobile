@@ -1,4 +1,4 @@
-package isetb.tp7.testprojet;
+package com.example.projetmobile;
 
 import org.junit.Test;
 

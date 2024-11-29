@@ -1,4 +1,4 @@
-package isetb.tp7.testprojet.model;
+package com.example.projetmobile.model;
 
 public class User {
     private Long id;

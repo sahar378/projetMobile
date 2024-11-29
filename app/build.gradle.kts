@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "isetb.tp7.testprojet"
+    namespace = "com.example.projetmobile"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "isetb.tp7.testprojet"
+        applicationId = "com.example.projetmobile"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -41,11 +41,8 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
 
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-
-
-
-
 }

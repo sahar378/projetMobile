@@ -1,4 +1,4 @@
-package isetb.tp7.testprojet.utils;
+package com.example.projetmobile.utils;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
