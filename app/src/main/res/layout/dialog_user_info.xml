@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#E3F2FD"
+    android:gravity="center">
 
     <ImageView
         android:id="@+id/dialog_user_image"
@@ -17,6 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="User Info"
-        android:textSize="16sp" />
+        android:text="User Informations"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#0D47A1"/>
 </LinearLayout>

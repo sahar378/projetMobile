@@ -2,6 +2,7 @@ package isetb.tp7.testprojet.utils;
 
 import java.util.List;
 
+import isetb.tp7.testprojet.model.LoginRequest;
 import isetb.tp7.testprojet.model.User;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -12,6 +13,8 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface UserService {
+    @POST("users/login")
+    Call<User> login(@Body LoginRequest loginRequest);
     @GET("users")
     Call<List<User>> getAllUser();
     @POST("users") // Remplacez par le bon endpoint pour ajouter un utilisateur

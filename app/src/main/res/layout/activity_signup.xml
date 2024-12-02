@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="#E3F2FD">
+
+    <!-- Signup Title -->
+    <TextView
+        android:id="@+id/signupTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#0D47A1" />
+
+    <!-- Name Input -->
+    <EditText
+        android:id="@+id/nameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="First Name"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"/>
+
+    <!-- Surname Input -->
+    <EditText
+        android:id="@+id/surnameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Surname"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"/>
+
+    <!-- Email Input -->
+    <EditText
+        android:id="@+id/signupEmailInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text" />
+
+    <!-- Phone Input -->
+    <EditText
+        android:id="@+id/phoneInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"/>
+
+    <!-- CIN Input -->
+    <EditText
+        android:id="@+id/cinInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="CIN"
+        android:inputType="text"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"/>
+
+    <!-- Job Position Input -->
+    <EditText
+        android:id="@+id/posteInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Job Position"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"/>
+
+    <!-- Address Input -->
+    <EditText
+        android:id="@+id/addressInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Address"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"/>
+
+    <!-- Date of Birth Input -->
+    <EditText
+        android:id="@+id/dobInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date of Birth (YYYY-MM-DD)"
+        android:inputType="date"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"/>
+
+    <!-- Start Date Input -->
+    <EditText
+        android:id="@+id/startDateInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Start Work Date (YYYY-MM-DD)"
+        android:inputType="date"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"/>
+
+    <!-- Password Input -->
+    <EditText
+        android:id="@+id/signupPasswordInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"/>
+
+    <!-- Confirm Password Input -->
+    <EditText
+        android:id="@+id/confirmPasswordInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"/>
+
+    <!-- Sign Up Button -->
+    <Button
+        android:id="@+id/signupButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:backgroundTint="#0D47A1"
+        android:textColor="#FFFFFF"
+        />
+
+    <!-- Back to Login Text -->
+    <TextView
+        android:id="@+id/loginLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account? Login"
+        android:textColor="#0D47A1"
+        android:textStyle="italic"
+        android:layout_gravity="center" />
+
+</LinearLayout>

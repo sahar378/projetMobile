@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,8 +21,8 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
     private TextView firstName;
     private TextView lastName;
 
-    private Button btnEdit;  // Ajout de la variable pour le bouton Edit
-    private Button btnDelete; // Ajout de la variable pour le bouton Delete
+    private ImageButton btnEdit;  // Ajout de la variable pour le bouton Edit
+    private ImageButton btnDelete; // Ajout de la variable pour le bouton Delete
     public UserViewHolder(@NonNull View itemView) {
         super(itemView);
         userImage = itemView.findViewById(R.id.user_image);

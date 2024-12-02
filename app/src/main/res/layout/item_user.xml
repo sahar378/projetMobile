@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:background="#E3F2FD">
 
     <ImageView
         android:id="@+id/user_image"
@@ -20,7 +21,8 @@
         android:layout_weight="1"
         android:text="First Name"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#0D47A1" />
 
     <TextView
         android:id="@+id/ln"
@@ -29,16 +31,18 @@
         android:layout_weight="1"
         android:text="Last Name"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#0D47A1"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/edit_icon"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:src="@drawable/ic_edit"
-        android:contentDescription="edit_user" />
+        android:contentDescription="edit_user"
+        android:layout_marginRight="10dp"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/delete_icon"
         android:layout_width="24dp"
         android:layout_height="24dp"

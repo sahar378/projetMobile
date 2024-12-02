@@ -1,5 +1,6 @@
 package isetb.tp7.testprojet;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -120,8 +121,8 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.OnUse
         editPoste.setText(user.getPoste());
         editAdresse.setText(user.getAdresseComplet());
 
-        builder.setTitle("Modifier Utilisateur")
-                .setPositiveButton("Mettre à jour", (dialog, which) -> {
+        builder.setTitle("Update user")
+                .setPositiveButton("Update user", (dialog, which) -> {
                     // Mettez à jour les informations de l'utilisateur ici
                     user.setNom(editNom.getText().toString());
                     user.setPrenom(editPrenom.getText().toString());
@@ -136,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.OnUse
 
                     updateUser(user); // Appel à la méthode pour mettre à jour l'utilisateur dans la base de données
                 })
-                .setNegativeButton("Annuler", (dialog, which) -> dialog.dismiss())
+                .setNegativeButton("Undo", (dialog, which) -> dialog.dismiss())
                 .setView(dialogView)
                 .create()
                 .show();
@@ -150,24 +151,24 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.OnUse
             public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful()) {
                     fetchUsers(); // Rafraîchir la liste des utilisateurs
-                    Toast.makeText(MainActivity.this, "Utilisateur mis à jour", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "User updated successfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(MainActivity.this, "Échec de la mise à jour", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "User not updated", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Erreur lors de la mise à jour", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Eror when updating user", Toast.LENGTH_SHORT).show();
             }
         });
     }
     private void confirmDeleteUser(User user) {
         new AlertDialog.Builder(this)
-                .setTitle("Supprimer Utilisateur")
-                .setMessage("Êtes-vous sûr de vouloir supprimer cet utilisateur ?")
-                .setPositiveButton("Oui", (dialog, which) -> deleteUser(user))
-                .setNegativeButton("Non", (dialog, which) -> dialog.dismiss())
+                .setTitle("Delete User")
+                .setMessage("Are you sure about deleting this user ?")
+                .setPositiveButton("Yes", (dialog, which) -> deleteUser(user))
+                .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
                 .create()
                 .show();
     }
@@ -180,16 +181,20 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.OnUse
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
                     fetchUsers(); // Rafraîchir la liste des utilisateurs
-                    Toast.makeText(MainActivity.this, "Utilisateur supprimé", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "User deleted", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(MainActivity.this, "Échec de la suppression", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "User not deleted", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Erreur lors de la suppression", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Eror when deleting user", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    public void openAddActivity(View view) {
+        Intent intent = new Intent(this, AddActivity.class);
+        startActivity(intent);
     }
 }

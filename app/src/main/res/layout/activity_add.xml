@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="#E3F2FD"> <!-- Utilisation du même fond que le login -->
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/addUserTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add users"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#0D47A1" />
+
+    <EditText
+        android:id="@+id/edit_user_nom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="First Name"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text" />
+
+    <EditText
+        android:id="@+id/edit_user_prenom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Surname"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text" />
+
+    <EditText
+        android:id="@+id/edit_user_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text" />
+
+    <EditText
+        android:id="@+id/edit_user_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text" />
+
+    <EditText
+        android:id="@+id/edit_user_telephone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text" />
+
+    <EditText
+        android:id="@+id/edit_user_cin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="CIN"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text" />
+
+    <EditText
+        android:id="@+id/edit_user_date_naissance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date of Birth"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text" />
+
+    <EditText
+        android:id="@+id/edit_user_date_debut_travail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Start Work Date"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_user_poste"
+        android:hint="Job Position"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_user_adresse"
+        android:hint="Adresse"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_user_password"
+        android:hint="Password"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text" />
+
+    <!-- Add User Button -->
+    <Button
+        android:id="@+id/button_add_user"
+        android:layout_width= "match_parent"
+        android:layout_height= "wrap_content"
+        android:text="Sign Up"
+        android:backgroundTint="#0D47A1"
+        android:textColor="#FFFFFF"/>
+
+</LinearLayout>

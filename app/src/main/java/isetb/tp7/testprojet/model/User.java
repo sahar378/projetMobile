@@ -32,6 +32,20 @@ public class User {
         this.dateNaissance = dateNaissance;
         this.dateDebutTravail = dateDebutTravail;
     }
+    public User(String nom, String prenom, String email, String username, String password, String telephone, String cin, String poste, String adresseComplet, String dateNaissance, String dateDebutTravail) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.telephone = telephone;
+        this.cin = cin;
+        this.poste = poste;
+        this.adresseComplet = adresseComplet;
+        this.dateNaissance = dateNaissance;
+        this.dateDebutTravail = dateDebutTravail;
+    }
+
 
     // Getters et Setters
     public Long getId() {
