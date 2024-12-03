@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.OnUse
             finish();
             return true;
         } else if (itemId == R.id.add) {
-           
+
             Intent intent = new Intent(this, SignupActivity.class);
             startActivity(intent);
             return true;
