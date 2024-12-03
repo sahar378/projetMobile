@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/main"
+    android:padding="16dp"
+    android:background="#E3F2FD"
+    tools:context=".TacheActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#0D47A1" />
+    <ImageButton
+        android:id="@+id/btnadd"
+        android:src="@drawable/add"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:backgroundTint="#0D47A1"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:layout_gravity="right"
+        android:gravity="center" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recycler"/>
+
+
+</LinearLayout>

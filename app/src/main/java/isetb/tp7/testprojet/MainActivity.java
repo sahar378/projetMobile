@@ -239,4 +239,8 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.OnUse
         Intent intent = new Intent(this, CongesActivity.class);
         startActivity(intent);
     }
+    public void openTacheActivity (View view){
+        Intent intent=new Intent(this,TacheActivity.class);
+        startActivity(intent);
+    }
 }

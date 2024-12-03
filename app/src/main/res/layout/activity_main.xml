@@ -58,5 +58,17 @@
         android:textColor="#FFFFFF"
         android:padding="12dp"
         android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/button_tache"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="openTacheActivity"
+            android:text="Tache"
+            android:backgroundTint="#0D47A1"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:layout_weight="1"/>
+
     </LinearLayout>
 </LinearLayout>

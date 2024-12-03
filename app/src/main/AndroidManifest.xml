@@ -38,6 +38,10 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+        <activity android:name=".TacheActivity"
+            android:exported="true"/>
+        <activity android:name=".AddTacheActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
