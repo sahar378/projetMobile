@@ -21,8 +21,8 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
     private TextView firstName;
     private TextView lastName;
 
-    private ImageButton btnEdit;  // Ajout de la variable pour le bouton Edit
-    private ImageButton btnDelete; // Ajout de la variable pour le bouton Delete
+    private ImageButton btnEdit;
+    private ImageButton btnDelete;
     public UserViewHolder(@NonNull View itemView) {
         super(itemView);
         userImage = itemView.findViewById(R.id.user_image);
@@ -55,6 +55,7 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
         dialogInfo.setText("Name: " + user.getNom()
                 + "\nPrenom: " + user.getPrenom()
                 + "\nEmail: " + user.getEmail()
+                + "\nUsername: " + user.getPassword()
                 + "\nUsername: " + user.getUsername()
                 + "\nTelephone: " + user.getTelephone()
                 + "\nCIN: " + user.getCin()

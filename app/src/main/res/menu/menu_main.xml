@@ -1,0 +1,14 @@
+<!-- res/menu/menu_main.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_logout"
+        android:icon="@drawable/logout"
+        android:title="Se déconnecter"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/add"
+        android:icon="@drawable/add"
+        android:title="Add"
+        app:showAsAction="always" />
+</menu>

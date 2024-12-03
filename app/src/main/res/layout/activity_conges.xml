@@ -1,0 +1,53 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E3F2FD">
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#0D47A1"
+        android:layout_marginBottom="24dp" />
+
+    <EditText
+        android:id="@+id/editTextDuree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Duration"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#0D47A1"
+        android:layout_marginBottom="24dp" />
+
+    <EditText
+        android:id="@+id/editTextTitre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Title"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#0D47A1"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/buttonEnregistrer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="save"
+        android:onClick="enregistrerDonnees"
+        android:backgroundTint="#0D47A1"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        />
+</LinearLayout>

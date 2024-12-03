@@ -67,9 +67,15 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
                     if (response.isSuccessful() && response.body() != null) {
+
+                        User loggedInUser = response.body(); // Récupérer l'utilisateur connecté
+
                         Log.d("LoginSuccess", "User: " + response.body().getEmail());
                         Toast.makeText(LoginActivity.this, "Connexion réussie !", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.putExtra("userName", loggedInUser.getUsername()); // Assurez-vous que getUsername() retourne le bon nom
+                        startActivity(intent);
                     } else {
                         Log.e("LoginError", "Code: " + response.code());
                         Toast.makeText(LoginActivity.this, "Identifiants incorrects", Toast.LENGTH_SHORT).show();

@@ -3,6 +3,8 @@ package isetb.tp7.testprojet;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -11,6 +13,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.OnUse
     private RecyclerView recyclerView;
     private List<User> userList;
     private UserAdapter userAdapter;
+    private String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,15 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.OnUse
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        userName = getIntent().getStringExtra("userName");
+        if (userName != null) {
+            Toast.makeText(this, "Hello " + userName, Toast.LENGTH_SHORT).show();
+        }
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Hello " + userName);
+        }
 
         recyclerView = findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -56,6 +69,31 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.OnUse
 
         fetchUsers();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.action_logout) {
+
+            Toast.makeText(this, "Déconnexion...", Toast.LENGTH_SHORT).show();
+            finish();
+            return true;
+        } else if (itemId == R.id.add) {
+           
+            Intent intent = new Intent(this, SignupActivity.class);
+            startActivity(intent);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
+    }
+
 
     private void fetchUsers() {
         UserService userService = Apis.getService();
@@ -195,6 +233,10 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.OnUse
     }
     public void openAddActivity(View view) {
         Intent intent = new Intent(this, AddActivity.class);
+        startActivity(intent);
+    }
+    public void openCongesActivity(View view) {
+        Intent intent = new Intent(this, CongesActivity.class);
         startActivity(intent);
     }
 }
